@@ -24,35 +24,25 @@ $(function () {
     	}
     });
 
-    //Export to XML
-    $("#btnExportXML").click(function() {
-    	// var Name = $("#name").val();
-    	// var Birthday = $("#birthday").val();
+    $("#name").keypress(function(event) {
+    	return CharactersOnly(event);
+    });
 
-    	// if (Name == "" && Birthday == "") {
-    	// 	alert("All fields are required.");
-    	// } else if (Name == "") {
-    	// 	alert("Name field is required.");
-    	// } else if (Birthday == "") {
-    	// 	alert("Birthday field is required.");
-    	// } else {
-	    // 	$.ajax({
-	    // 		async: false,
-	    // 		type: "POST",
-	    // 		url: "xmlexport.php",
-	    // 		data: {
-	    // 			"Name": Name,
-	    // 			"Birthday": Birthday
-	    // 		},
-	    // 		error: function(req, error) {
-	    // 			alert(req.statusText);
-	    // 		},
-	    // 		success: function(msg) {
-	    // 			if (msg == "ok") {
-	    // 				window.location.href = "http://localhost/PHPExam/data/data.xml";
-	    // 			}
-	    // 		}
-	    // 	});
-    	// }
+    $("#birthday").keypress(function(event) {
+    	return NoCharInput(event);
     });
 });
+
+function CharactersOnly(e){
+	var e=window.event || e;
+	var unicode=e.charCode || e.keyCode;
+	return (unicode>=65 && unicode<=90 || unicode>=97 && unicode<=122 
+			|| unicode==32 || unicode==8 || unicode==9 || unicode==16 
+			|| unicode==46 || unicode>=37 && unicode<=40)? true : false
+}
+
+function NoCharInput(e){
+	var e=window.event || e;
+	var unicode=e.charCode || e.keyCode;
+	return (unicode==9 || unicode==8)? true : false
+}
