@@ -69,7 +69,7 @@ if (isset($_POST['btnSubmit'])) {
 						    <div class="form-group">
 						      <div class="col-md-12 text-center">
 						        <button type="submit" class="btn btn-primary btn-sl" id="btnSubmit" name="btnSubmit">Submit</button>
-						        <a class="btn btn-primary btn-sl" href="http://localhost/PHPExam/data/data.xml" target="_blank">Export to XML</a>
+						        <a class="btn btn-primary btn-sl" href="<?php $_SERVER['HTTP_HOST']; ?>/data/data.xml" target="_blank">Export to XML</a>
 						      </div>
 						    </div>
 						  </fieldset>
